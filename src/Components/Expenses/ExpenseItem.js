@@ -7,7 +7,9 @@ function ExpenseItem(props) {
   // const expenseTitle ='Car Insurance';
   // const expenseAmount = 294.67;
   
-  
+  const clickHandler=() =>{
+    console.log("clicked!!!");
+  }
 
   return (
     // there should be only one root element inside return
@@ -38,6 +40,7 @@ function ExpenseItem(props) {
         <h2>{props.title}</h2>
         <div className="expense-item__price">{props.amount}</div>
       </div>
+      <button onClick = {clickHandler}>Change Title</button>
     </Card>
   );
 }
