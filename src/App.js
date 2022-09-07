@@ -31,11 +31,17 @@ function App() {
     },
 
   ];
+
+  const addExpenseHandler =(expense) =>{
+    console.log("In app js")
+    console.log(expense);
+
+  }
   return (
     <div className="App">
       <h2>Let's start</h2>
       {/* jsx feature writng html inside js code is something strange here we are using jsx */}
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses}/>
     </div>
   );
