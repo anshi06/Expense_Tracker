@@ -39,7 +39,7 @@ const ExpenseForm = (props)=>{
          setEnteredDate(event.target.value);
         // setUserInput({
         //     ...userInput,
-        //     eneteredDate : event.target.value,
+        //     enteredDate : event.target.value,
         // })
 
         // setUserInput((prevState) =>{
