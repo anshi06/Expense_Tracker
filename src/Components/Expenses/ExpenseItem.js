@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 import Card from "../UI/Card";
+
 function ExpenseItem(props) {
   //js should be written before html code
   // const expenseDate = new Date(2022,3,28); //Date is inbuilt js constructor
@@ -38,7 +39,7 @@ function ExpenseItem(props) {
     // </div>
 
     <Card className="expense-item">
-      
+
       <ExpenseDate date={props.date}/>
       <div className="expense-item__description">
         <h2>{title}</h2>
