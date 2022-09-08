@@ -54,7 +54,7 @@ const ExpenseForm = (props)=>{
         event.preventDefault(); // it will not send any request to server it will be managed by js manually
         const expenseData ={
             title : enteredTitle,
-            amount : enteredAmount,
+            amount : +enteredAmount,
             date : new Date(enteredDate),
         }
         props.onSaveExpenseData(expenseData);
