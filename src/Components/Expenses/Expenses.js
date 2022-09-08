@@ -14,19 +14,23 @@ function Expenses(props) {
     { return (element.date.getFullYear().toString() === filteredYear)
       })
 
-  return (
-    <Card className='expenses'>
-      <ExpenseFilter selected={filteredYear} onChangeYear = {changeYearHandler} />
-
-      {filteredExpenses.length===0 ? (<p>No items Found</p>) : (filteredExpenses.map((expense) => (
+      let expenseContent = <p>No items Found.</p>;
+      // we can define variable and assign it to jsx code before return also
+      if(filteredExpenses.length > 0){
+        expenseContent =  filteredExpenses.map((expense) => (
           <ExpenseItem
             key = {expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
           />
-        )))}
+        ));
+      }
 
+  return (
+    <Card className='expenses'>
+      <ExpenseFilter selected={filteredYear} onChangeYear = {changeYearHandler} />
+      {expenseContent}
       
     </Card>
   );
