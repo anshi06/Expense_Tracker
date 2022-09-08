@@ -1,6 +1,6 @@
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
-import React from "react";
+import React, {useState} from "react";
 const NewExpense=(props) =>{
     const saveDataExpenseHandler=(enteredExpenseData) =>{
         const expenseData={
@@ -9,12 +9,24 @@ const NewExpense=(props) =>{
 
         };
         console.log(expenseData);
-        props.onAddExpense(expenseData); 
+        props.onAddExpense(expenseData);
+        setisEditing(false);
 
     }
+
+    const[isEditing, setisEditing] = useState(false);
+    const startEditingHandler = ()=>{
+        setisEditing(true);
+    }
+    const stopEditingHandeler = ()=>{
+        setisEditing(false);
+    }
+
     return(
        <div className="new-expense">
-        <ExpenseForm onSaveExpenseData={saveDataExpenseHandler}/>
+        {!isEditing && <button onClick={startEditingHandler}>Add New Expense</button>}
+        {isEditing && <ExpenseForm  
+        onCancel={stopEditingHandeler} onSaveExpenseData={saveDataExpenseHandler}/>}
         {/* we can create our own prop or event to communicate btw child to parent, naming convention is up to you */}
 
        </div>
